@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QCheckBox>
+
 #include "sqlite/dbmanager.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -23,7 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     for (int row = 0; row < table.size(); row++) {
         ui->tableWidget->insertRow(row);
-        for (int col = 0; col < headerNames.size()-1; col++) {
+        int col;
+        for (col = 0; col < headerNames.size()-2; col++) {
             ui->tableWidget-> setCellWidget(row, col, new QLabel);
             QLabel *cellLabel = qobject_cast<QLabel *>(ui->
                                                        tableWidget->
@@ -32,6 +35,16 @@ MainWindow::MainWindow(QWidget *parent)
             cellLabel->setText(table[row][col]);
             cellLabel->setAlignment(Qt::AlignHCenter);
         }
+
+        ui->tableWidget->setCellWidget(row, col, new QCheckBox);
+        QCheckBox *checkBox = qobject_cast<QCheckBox *>(ui->
+                                                        tableWidget->
+                                                        cellWidget(row, col));
+
+        if (table[row][col] == "0")
+            checkBox->setCheckState(Qt::Unchecked);
+        else
+            checkBox->setCheckState(Qt::Checked);
     }
 }
 
