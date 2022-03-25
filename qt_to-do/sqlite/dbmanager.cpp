@@ -91,10 +91,6 @@ bool DbManager::deleteTask(const int id){
     return success;
 }
 
-QVector<QVector<QString>> DbManager::getAll() {
-    return QVector<QVector<QString>>();
-}
-
 DbManager* DbManager::getInstance() {
     if (!s_instance) {
         s_instance = new DbManager("../data/to-do_db.db");
