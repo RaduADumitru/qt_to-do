@@ -4,6 +4,12 @@
 #include <QSql>
 #include <QSqlQuery>
 #include <QSqlError>
+<<<<<<< HEAD
+=======
+
+
+DbManager *DbManager::s_instance = 0;
+>>>>>>> b193b3b43b63138eaad8d37548ca4f5045c9f572
 
 DbManager::DbManager(const QString& path)
 {
@@ -87,4 +93,11 @@ bool DbManager::deleteTask(const int id){
     }
 
     return success;
+}
+
+DbManager* DbManager::getInstance() {
+    if (!s_instance) {
+        s_instance = new DbManager("../data/to-do_db.db");
+    }
+    return s_instance;
 }
