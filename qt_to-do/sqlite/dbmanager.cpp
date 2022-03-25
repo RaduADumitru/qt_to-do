@@ -54,6 +54,20 @@ bool DbManager::taskExists(const int id){
     }
     return 0;
 }
+QVector<QVector<QString>> DbManager::getAll() {
+    QSqlQuery query("SELECT id, name, description, isDone FROM Tasks");
+    QVector<QVector<QString>> v;
+    int row = 0;
+    while (query.next())
+    {
+        v.push_back(QVector<QString>(4));
+       for(int col = 0; col < 4; col++){
+           v[row][col] = query.value(col).toString();
+       }
+       row++;
+    }
+    return v;
+}
 bool DbManager::deleteTask(const int id){
     bool success = false;
     if (taskExists(id))
