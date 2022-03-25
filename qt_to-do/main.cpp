@@ -24,7 +24,11 @@ int main(int argc, char *argv[])
 
     //sqlite
 
+<<<<<<< HEAD
+    DbManager *d = new DbManager("..\data\to-do_db.db");
+=======
     DbManager *d = DbManager::getInstance();
+>>>>>>> b193b3b43b63138eaad8d37548ca4f5045c9f572
 
     MainWindow w;
     w.show();

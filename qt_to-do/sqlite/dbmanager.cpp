@@ -4,9 +4,12 @@
 #include <QSql>
 #include <QSqlQuery>
 #include <QSqlError>
+<<<<<<< HEAD
+=======
 
 
 DbManager *DbManager::s_instance = 0;
+>>>>>>> b193b3b43b63138eaad8d37548ca4f5045c9f572
 
 DbManager::DbManager(const QString& path)
 {
