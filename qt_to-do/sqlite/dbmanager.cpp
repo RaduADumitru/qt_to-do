@@ -2,6 +2,10 @@
 #include "qdebug.h"
 #include <QString>
 #include <QSql>
+#include <QSqlQuery>
+#include <QSqlError>
+
+DbManager *DbManager::s_instance = 0;
 
 DbManager::DbManager(const QString& path)
 {
@@ -71,4 +75,15 @@ bool DbManager::deleteTask(const int id){
     }
 
     return success;
+}
+
+QVector<QVector<QString>> DbManager::getAll() {
+    return QVector<QVector<QString>>();
+}
+
+DbManager* DbManager::getInstance() {
+    if (!s_instance) {
+        s_instance = new DbManager("../data/to-do_db.db");
+    }
+    return s_instance;
 }
