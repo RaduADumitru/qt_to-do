@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 
+
+#include "sqlite\dbmanager.h"
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
@@ -19,6 +21,11 @@ int main(int argc, char *argv[])
             break;
         }
     }
+
+    //sqlite
+
+    DbManager *d = DbManager::getInstance();
+
     MainWindow w;
     w.show();
     return a.exec();
