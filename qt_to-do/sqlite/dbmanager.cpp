@@ -5,6 +5,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 
+
 DbManager *DbManager::s_instance = 0;
 
 DbManager::DbManager(const QString& path)
