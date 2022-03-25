@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 
+
+#include "sqlite\dbmanager.h"
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
@@ -18,6 +20,8 @@ int main(int argc, char *argv[])
         }
     }
     //sqlite
+
+    DbManager *d = new DbManager("..\data\to-do_db.db");
 
     MainWindow w;
     w.show();
