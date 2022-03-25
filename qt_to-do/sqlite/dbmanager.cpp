@@ -2,6 +2,8 @@
 #include "qdebug.h"
 #include <QString>
 #include <QSql>
+#include <QSqlQuery>
+#include <QSqlError>
 
 DbManager::DbManager(const QString& path)
 {
