@@ -5,6 +5,9 @@
 #include <QSqlQuery>
 #include <QSqlError>
 
+
+DbManager *DbManager::s_instance = 0;
+
 DbManager::DbManager(const QString& path)
 {
    m_db = QSqlDatabase::addDatabase("QSQLITE");
@@ -87,4 +90,11 @@ bool DbManager::deleteTask(const int id){
     }
 
     return success;
+}
+
+DbManager* DbManager::getInstance() {
+    if (!s_instance) {
+        s_instance = new DbManager("../data/to-do_db.db");
+    }
+    return s_instance;
 }

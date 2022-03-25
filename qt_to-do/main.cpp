@@ -6,6 +6,8 @@
 #include <QLocale>
 #include <QTranslator>
 
+
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -19,10 +21,13 @@ int main(int argc, char *argv[])
             break;
         }
     }
+<<<<<<< HEAD
     //sqlite
 
     DbManager *d = new DbManager("..\data\to-do_db.db");
 
+=======
+>>>>>>> 417fd5b3a1a77c00a815bc4eaf7cc44daab58d45
     MainWindow w;
     w.show();
     return a.exec();
